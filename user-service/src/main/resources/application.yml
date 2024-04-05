@@ -1,0 +1,35 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: user-service
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: sa
+    password: sa
+    driver-class-name: org.postgresql.Driver
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+mybatis:
+  type-aliases-package: com.seojs.userservice.domain
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      seojs:
+        userservice:
+          mapper: trace
