@@ -33,3 +33,8 @@ logging:
       seojs:
         userservice:
           mapper: trace
+
+token:
+  expiration_time: 1800000
+  secret: user_token
+  prefix: "Bearer "

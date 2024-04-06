@@ -10,4 +10,5 @@ public interface UserMapper {
     void save(User user);
 
     Optional<User> findById(Long id);
+    Optional<User> findByLoginId(String loginId);
 }

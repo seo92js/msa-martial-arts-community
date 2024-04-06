@@ -14,4 +14,10 @@
         where id = #{id}
     </select>
 
+    <select id="findByLoginId" resultType="User">
+        select *
+        from "user"
+        where login_id = #{loginId}
+    </select>
+
 </mapper>

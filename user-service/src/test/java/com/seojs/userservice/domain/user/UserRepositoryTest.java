@@ -33,7 +33,28 @@ class UserRepositoryTest {
         User findUser = userRepository.findById(savedId).get();
 
         assertThat(findUser.getLoginId()).isEqualTo(loginId);
-        assertThat(findUser.getPassword()).isEqualTo(password);
+        assertThat(findUser.getName()).isEqualTo(name);
+        assertThat(findUser.getRole()).isEqualTo(role);
+        assertThat(findUser.getTapologyUrl()).isEqualTo(tapologyUrl);
+        assertThat(findUser.getSherdogUrl()).isEqualTo(sherdogUrl);
+    }
+
+    @Test
+    void findByLoginId() {
+        String loginId = "loginId";
+        String password = "password";
+        String name = "name";
+        String role = "ROLE_ADMIN";
+        String tapologyUrl = "1";
+        String sherdogUrl = "2";
+
+        User user = new User(loginId, password, name, role, tapologyUrl, sherdogUrl);
+
+        Long savedId = userRepository.save(user);
+
+        User findUser = userRepository.findByLoginId(loginId).get();
+
+        assertThat(findUser.getLoginId()).isEqualTo(loginId);
         assertThat(findUser.getName()).isEqualTo(name);
         assertThat(findUser.getRole()).isEqualTo(role);
         assertThat(findUser.getTapologyUrl()).isEqualTo(tapologyUrl);

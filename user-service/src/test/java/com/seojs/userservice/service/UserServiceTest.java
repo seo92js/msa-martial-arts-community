@@ -17,7 +17,7 @@ class UserServiceTest {
     UserService userService;
 
     @Test
-    void save() {
+    void save_findById() {
         String loginId = "loginId";
         String password = "password";
         String name = "name";
@@ -33,6 +33,29 @@ class UserServiceTest {
 
         assertThat(userResponseDto).isNotNull();
         assertThat(userResponseDto.getName()).isEqualTo(name);
+        assertThat(userResponseDto.getLoginId()).isEqualTo(loginId);
+        assertThat(userResponseDto.getSherdogUrl()).isEqualTo(sherdogUrl);
+        assertThat(userResponseDto.getTapologyUrl()).isEqualTo(tapologyUrl);
+    }
+
+    @Test
+    void findByLoginId() {
+        String loginId = "loginId";
+        String password = "password";
+        String name = "name";
+        String role = "ROLE_ADMIN";
+        String tapologyUrl = "1";
+        String sherdogUrl = "2";
+
+        UserSaveDto userSaveDto = new UserSaveDto(loginId, password, name, role, tapologyUrl, sherdogUrl);
+
+        Long savedId = userService.save(userSaveDto);
+
+        UserResponseDto userResponseDto = userService.findByLoginId(loginId);
+
+        assertThat(userResponseDto).isNotNull();
+        assertThat(userResponseDto.getName()).isEqualTo(name);
+        assertThat(userResponseDto.getLoginId()).isEqualTo(loginId);
         assertThat(userResponseDto.getSherdogUrl()).isEqualTo(sherdogUrl);
         assertThat(userResponseDto.getTapologyUrl()).isEqualTo(tapologyUrl);
     }

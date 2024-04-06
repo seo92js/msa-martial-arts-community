@@ -19,4 +19,8 @@ public class UserRepository {
     public Optional<User> findById(Long id) {
         return userMapper.findById(id);
     }
+
+    public Optional<User> findByLoginId(String loginId) {
+        return userMapper.findByLoginId(loginId);
+    }
 }
