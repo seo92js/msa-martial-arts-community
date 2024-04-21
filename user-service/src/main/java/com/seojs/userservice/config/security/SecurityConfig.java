@@ -39,6 +39,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
                                 //.requestMatchers("/user-service/**").permitAll()
                                 //.requestMatchers(":5432/testdb").permitAll()
+                                .requestMatchers("/actuator/**").permitAll()
                                 .requestMatchers("/**").permitAll()
                         //.requestMatchers("/**").access(new WebExpressionAuthorizationManager("hasIpAddress('localhost')"))
                 )

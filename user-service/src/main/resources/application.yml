@@ -34,7 +34,13 @@ logging:
         userservice:
           mapper: trace
 
-token:
-  expiration_time: 1800000
-  secret: user_token
-  prefix: "Bearer "
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh, beans, httptrace, busrefresh
+
+#token:
+#  expiration_time: 1800000
+#  secret: user_token
+#  prefix: "Bearer "

@@ -42,6 +42,13 @@ dependencies {
 	//jwt
 	implementation group: 'com.auth0', name: 'java-jwt', version: '4.4.0'
 
+	//cloud config
+	implementation 'org.springframework.cloud:spring-cloud-starter-config'
+	implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+
+	//actuator
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
